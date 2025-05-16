@@ -1,0 +1,15 @@
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+.content-overlay {
+    position: relative;
+    z-index: 1;
+}
