@@ -1,7 +1,4 @@
 import { Routes } from '@angular/router';
 import { HomeSectionComponent } from './home-section/home-section.component';
 
-export const routes: Routes = [{
-    path: '',
-    component: HomeSectionComponent
-}];
+export const routes: Routes = [];
