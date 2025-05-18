@@ -20,14 +20,14 @@ export class RegisterComponent {
   constructor(private authService: AuthService, private toaster: ToasterService, private swal: SweetAlertService) {
 
     this.registerForm = new FormGroup({
-      email: new FormControl('example@ex.com', [Validators.required, Validators.email]),
-      role: new FormControl('ADMIN', [Validators.required]),
-      password: new FormControl('Munna@2025', [
+      email: new FormControl('', [Validators.required, Validators.email]),
+      role: new FormControl('', [Validators.required]),
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
         Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)
       ]),
-      username: new FormControl('munna', [
+      username: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(20),
@@ -53,12 +53,12 @@ export class RegisterComponent {
       this.authService.register(registerationData).subscribe({
         next: (response) => {
           if (response.statusCode === 200) {
-            this.swal.success("Registration Succesfull").then((result) => {
+            this.swal.success(response.message).then((result) => {
               if (result.isConfirmed) {
+                this.registerForm.reset();
                 // Navigate to another page 
               }
             });
-            this.registerForm.reset();
           }
         },
         error: (error) => {
