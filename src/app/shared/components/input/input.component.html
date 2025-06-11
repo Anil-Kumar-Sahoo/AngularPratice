@@ -1,0 +1,10 @@
+<div class="input-wrapper">
+    <label [for]="name" class="input-label">{{ label }}</label>
+    <input [type]="type" [id]="name" [name]="name" class="input-field" [(ngModel)]="model" [required]="required"
+        [attr.pattern]="pattern || null" #ctrl="ngModel" />
+
+    <div class="input-error" *ngIf="ctrl.invalid && ctrl.touched">
+        <div *ngIf="ctrl.errors?.['required']">This field is required.</div>
+        <div *ngIf="ctrl.errors?.['pattern']">Invalid format.</div>
+    </div>
+</div>

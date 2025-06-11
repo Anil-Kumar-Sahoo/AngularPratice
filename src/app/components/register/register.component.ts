@@ -56,6 +56,7 @@ export class RegisterComponent {
             this.swal.success(response.message).then((result) => {
               if (result.isConfirmed) {
                 this.registerForm.reset();
+                this.isLoading = false;
                 // Navigate to another page 
               }
             });

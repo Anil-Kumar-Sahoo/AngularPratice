@@ -1,0 +1,11 @@
+<button [type]="type" [disabled]="disabled" [ngClass]="['btn', 'btn-' + color]">
+  <span class="btn-icon" *ngIf="icon && iconPosition === 'left'">
+    <i [ngClass]="icon"></i>
+  </span>
+
+  <ng-content></ng-content>
+
+  <span class="btn-icon" *ngIf="icon && iconPosition === 'right'">
+    <i [ngClass]="icon"></i>
+  </span>
+</button>
